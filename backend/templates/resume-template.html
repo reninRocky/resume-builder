@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Resume</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: "Calibri", "Helvetica Neue", Arial, sans-serif; 
+      background: white; 
+      color: #2c3e50; 
+      padding: 35px 40px;
+      line-height: 1.5;
+      font-size: 11pt;
+      width: 100%;
+      overflow-x: visible;
+    }
+    .header { 
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+      width: 100%;
+      overflow: visible;
+    }
+    .name { 
+      font-size: 28px; 
+      font-weight: 700; 
+      color: #2c3e50;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+    .contact { 
+      font-size: 10pt; 
+      color: #555;
+      line-height: 1.6;
+      white-space: nowrap !important;
+      overflow: visible;
+      display: block;
+      word-spacing: 0;
+      letter-spacing: 0;
+      min-width: 100%;
+    }
+    .contact span,
+    .contact a {
+      display: inline-block;
+      white-space: nowrap;
+      margin: 0;
+      padding: 0;
+      vertical-align: baseline;
+    }
+    .contact a {
+      color: #3498db;
+      text-decoration: none;
+    }
+    .contact a:hover {
+      text-decoration: underline;
+    }
+    .section-title { 
+      font-weight: 700; 
+      margin-top: 16px; 
+      margin-bottom: 8px; 
+      font-size: 13pt;
+      color: #2c3e50;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-left: 3px solid #3498db;
+      padding-left: 8px;
+    }
+    .section-content {
+      color: #34495e;
+      font-size: 10.5pt;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    .two-col { 
+      display: flex; 
+      gap: 25px; 
+      margin-top: 8px;
+    }
+    .col { 
+      flex: 1; 
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+    ul li {
+      margin-bottom: 6px;
+      padding-left: 18px;
+      position: relative;
+    }
+    /* Bullets are added via HTML span element, not CSS :before */
+    .experience-item {
+      margin-bottom: 10px;
+    }
+    .experience-title {
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 3px;
+    }
+    .experience-desc {
+      color: #555;
+      font-size: 10pt;
+      margin-left: 8px;
+    }
+    .competencies-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .competency-tag {
+      background: #ecf0f1;
+      color: #2c3e50;
+      padding: 4px 10px;
+      border-radius: 3px;
+      font-size: 10pt;
+      border-left: 2px solid #3498db;
+    }
+    @page { 
+      size: A4; 
+      margin: 15mm 20mm; 
+    }
+    @media print {
+      body { padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="name">{{NAME}}</div>
+    <div class="contact"><span>{{EMAIL}}</span><span> | </span><span>{{PHONE}}</span><span> | </span><a href="{{LINKEDIN}}" target="_blank">LinkedIn</a><span> | </span><a href="{{PORTFOLIO}}" target="_blank">Portfolio</a></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">PROFESSIONAL SUMMARY</div>
+    <div class="section-content">{{SUMMARY}}</div>
+  </div>
+
+  <div class="two-col">
+    <div class="col">
+      <div class="section-title">EDUCATION</div>
+      <div class="section-content">{{EDUCATION}}</div>
+
+      <div class="section-title">CORE COMPETENCIES</div>
+      <div class="section-content">{{COMPETENCIES}}</div>
+    </div>
+
+    <div class="col">
+      <div class="section-title">WORK EXPERIENCE</div>
+      <div class="section-content">{{EXPERIENCE}}</div>
+
+      <div class="section-title">PROJECTS</div>
+      <div class="section-content">{{PROJECTS}}</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 16px;">
+    <div class="section-content">{{CERTS}}</div>
+  </div>
+</body>
+</html>

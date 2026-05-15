@@ -1,147 +1,134 @@
-# 🎙️ Voice Explainer AI
+<div align="center">
+<svg width="100%" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="35%" style="stop-color:#1e1b4b"/>
+      <stop offset="65%" style="stop-color:#0d0221"/>
+      <stop offset="100%" style="stop-color:#020617"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="220" fill="url(#bg)"/>
+  <ellipse cx="800" cy="50" rx="250" ry="80" fill="#6366f1" opacity="0.1"/>
+  <ellipse cx="100" cy="170" rx="180" ry="60" fill="#a855f7" opacity="0.08"/>
+  <path d="M0,180 Q250,150 450,175 Q650,200 900,165 L900,220 L0,220 Z" fill="#4f46e5" opacity="0.15"/>
+  <text x="450" y="105" font-family="'Segoe UI', Arial, sans-serif" font-size="52" font-weight="900" fill="#818cf8" text-anchor="middle" letter-spacing="6">RESUME GENIUS AI</text>
+  <text x="450" y="145" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="400" fill="#94a3b8" text-anchor="middle" letter-spacing="2">Smart Tailoring Engine for Intelligent Job Applications</text>
+</svg>
 
-Voice Explainer AI is a **Tkinter-based desktop application** that
-allows users to **analyze, summarize, and interact with files using both
-voice and text commands**. It uses **OpenAI's GPT models** for
-understanding and explanation, combined with **speech recognition** and
-**text-to-speech (TTS)** for a complete hands-free experience.
+<a href="https://git.io/typing-svg">
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=18&pause=1000&color=818CF8&center=true&vCenter=true&width=800&height=45&lines=%E2%9A%A1+Automated+Tailoring+via+GPT-4+%2F+Ollama;%F0%9F%9B%A1+Fixed+Field+Protection+(Contact+%C2%B7+Edu+%C2%B7+Patents);%F0%9F%93%84+Professional+PDF+Generation+with+Puppeteer;%F0%9F%94%97+Clickable+Smart-Links+for+LinkedIn+%26+Portfolio" alt="Typing SVG"/>
+</a><br/>
 
-------------------------------------------------------------------------
+<img src="https://img.shields.io/badge/Backend-Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white&labelColor=0d1117"/>
+&nbsp;
+<img src="https://img.shields.io/badge/Frontend-React_18-61dafb?style=for-the-badge&logo=react&logoColor=black&labelColor=0d1117"/>
+&nbsp;
+<img src="https://img.shields.io/badge/AI-OpenAI_%7C_Ollama-white?style=for-the-badge&logo=openai&logoColor=black&labelColor=0d1117"/>
+</div>
 
-## ✨ Features
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png" width="100%" alt="divider"/>
 
--   📁 **Browse and Analyze Files** --- Upload any text or code file to
-    get a simple AI-generated explanation.
--   🧠 **AI-Powered Summaries** --- Summarize and understand complex
-    files using GPT.
--   🎤 **Voice Question Mode** --- Ask questions about the file using
-    your voice.
--   💬 **Text Question Mode** --- Type questions for precise queries.
--   🔊 **Text-to-Speech Output** --- Hear explanations and summaries
-    aloud.
--   🕶️ **Dark Mode UI** --- Modern dark-themed interface built with
-    Tkinter.
--   📜 **Recent Files** --- Automatically keeps track of your 10 most
-    recent files.
+◈ System Blueprint
 
-------------------------------------------------------------------------
+<table>
+<tr>
+<td width="55%">
 
-## ⚙️ Installation
+```javascript
+// ai_resume_logic.js
+const systemConfig = {
+  fixedContext: [
+    "Personal Info", "Education", 
+    "Certificates", "Experience Titles"
+  ],
+  dynamicGeneration: {
+    engine: "GPT-4 / Llama-3",
+    targets: ["Summary", "Competencies", "Bullet Points"],
+    format: "Context-Aware Job Matching"
+  },
+  output: "Pixel-Perfect PDF (Puppeteer)",
+  security: "Zero-Data-Persistence Environment"
+};
 
-### 1. Clone or Download
-
-``` bash
-git clone https://github.com/yourusername/voice-explainer-ai.git
-cd voice-explainer-ai
 ```
 
-Or simply **download the `.py` file** and place it in a folder.
+◈ Capabilities at a Glance
 
-### 2. Install Requirements
+◈ Technical Architecture
 
-Make sure Python 3.8+ is installed. Then run:
+```mermaid
+graph TD
+    User[Job Description Input] --> UI[React Frontend]
+    UI --> API[Node.js / Express]
+    
+    subgraph "Intelligence Engine"
+    API --> AI{AI Provider}
+    AI -- Cloud --> OpenAI[GPT-4 API]
+    AI -- Local --> Ollama[Llama-3 Local]
+    end
+    
+    subgraph "Document Assembly"
+    API --> JSON[base_resume.json]
+    API --> Template[HTML/CSS Template]
+    Template --> PDF[Puppeteer PDF Engine]
+    end
+    
+    PDF --> Download[Tailored Resume.pdf]
+    
+    style AI fill:#1e1b4b,stroke:#818cf8,stroke-width:2px;
+    style PDF fill:#0d1e2d,stroke:#a855f7,stroke-width:2px;
 
-``` bash
-pip install openai pyttsx3 SpeechRecognition tkinter
 ```
 
-> Note: `tkinter` usually comes pre-installed with Python.\
-> On some systems, you might also need to install `pyaudio` separately:
->
-> ``` bash
-> pip install pyaudio
-> ```
+◈ Installation & Deployment
 
-### 3. Set OpenAI API Key
+### 1. Clone & Core Setup
 
-You can set your API key using one of the following methods:
+```bash
+git clone <repository-url>
+cd resume-builder
 
-#### Option 1: Environment Variable (Recommended)
-
-``` bash
-setx OPENAI_API_KEY "your_api_key_here"
 ```
 
-#### Option 2: `.env` File
+### 2. Backend Ignition
 
-Create a `.env` file in the same folder as the script:
+```bash
+cd backend
+npm install
+# Configure your .env (OpenAI/Ollama)
+npm start
 
-    OPENAI_API_KEY=your_api_key_here
-
-------------------------------------------------------------------------
-
-## 🚀 Usage
-
-Run the app:
-
-``` bash
-python voice_explainer_ai.py
 ```
 
-Then:
+### 3. Frontend Ignition
 
-1.  Click **📁 Browse File** and select any text or code file.
-2.  Click **🤖 Analyze & Summarize** to let the AI explain it.
-3.  Use **🎤 Ask (Voice)** or **💬 Ask (Text)** to ask questions.
-4.  Click **🔊 Speak Output** to listen to the explanation.
-5.  The bottom bar shows status updates in real time.
+```bash
+cd ../frontend
+npm install
+npm start
 
-------------------------------------------------------------------------
+```
 
-## 📂 Project Structure
+◈ API Controller Interface
 
-    voice-explainer-ai/
-    │
-    ├── voice_explainer_ai.py     # Main Application Script
-    ├── recent_files.json          # Automatically generated for tracking recent files
-    ├── .env                       # Store your OpenAI API Key
-    └── README.md                  # Documentation file
+| Method | Endpoint | Context / Description |
+| --- | --- | --- |
+| `GET` | `/api/fixed-fields` | Retrieve immutable identity and education data |
+| `POST` | `/api/generate` | Trigger AI generation based on job description |
+| `POST` | `/api/inject` | Build and return pixel-perfect PDF binary |
 
-------------------------------------------------------------------------
+◈ Advanced Troubleshooting Matrix
 
-## 🧩 Key Components
+| 🔭 Issue | 📌 Potential Vector | 🎯 Resolution Path |
+| --- | --- | --- |
+| Puppeteer Fail | Missing Chromium dependencies | Reinstall Puppeteer / Check OS fonts |
+| Link Issues | Improper HTML template tags | Use `<a>` tags with `{{LINKEDIN}}` |
+| AI Connection | API Key or Local Port 11434 | Verify `.env` or run `ollama serve` |
+| Port Conflict | Port 4000/3000 in use | Kill process using `lsof -ti:4000` |
 
-  -----------------------------------------------------------------------
-  Component                          Description
-  ---------------------------------- ------------------------------------
-  **openai**                         Connects to GPT API for text
-                                     summarization and question answering
+◈ Formatting & Compliance
 
-  **pyttsx3**                        Provides text-to-speech capability
-
-  **SpeechRecognition**              Captures and processes voice input
-
-  **tkinter**                        GUI framework for the app
-
-  **threading**                      Keeps UI responsive during long
-                                     tasks
-  -----------------------------------------------------------------------
-
-------------------------------------------------------------------------
-
-## 💡 Tips
-
--   If your microphone is not working, check your system input device
-    settings.
-
--   If TTS voice is too fast or slow, adjust the `rate` in:
-
-    ``` python
-    engine.setProperty("rate", 170)
-    ```
-
--   If OpenAI API key is invalid or missing, you'll see a popup alert.
-
-------------------------------------------------------------------------
-
-## 🧑‍💻 Author
-
-**Renin Francy T.**\
-📧 \[GitHub Profile / Portfolio Placeholder\]
-
-------------------------------------------------------------------------
-
-## 🛠️ License
-
-MIT License © 2025 Renin Francy T.
-"# resume-builder" 
+* **Bullet Policy**: System enforces the `•` character for professional consistency.
+* **ATS Compatibility**: Optimized HTML-to-PDF structure for machine readability.
+* **Privacy**: Personal data is stored locally in `base_resume.json`—never sent to AI unless mapped as variable.
